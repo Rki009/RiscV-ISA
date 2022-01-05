@@ -3,7 +3,8 @@
 ## Features
 
 - "RiscV-Opcodes.xls" ISA Specifications
-- "ParseExcel.py3" Tools for Building *.h and *.cpp files
+- "ParseExcel.py3" Tools for building *.h and *.cpp files
+- "MakeDecode.py3" Tolls for building a *.v decoder file.
 
 ## RiscV-Opcodes.xls
 The spreadsheet is used to specify the encoding of RV32 and RV64 instructions. For example the lw instruction is encoded as:
@@ -11,7 +12,7 @@ The spreadsheet is used to specify the encoding of RV32 and RV64 instructions. F
 ```
 LW Example
 --------------------------------------------
-Bits        iiiiiiiiiiiisssss010ddddd0000011
+Bits        "iiiiiiiiiiiisssss010ddddd0000011"
 Opcode      0x00002003
 Mask        0x0000707f
 Arch        rv32,rv64
@@ -21,23 +22,29 @@ Function    rd <= mem32[rs1 + simm12]
 ```
 The 'Bits' field is an encoded representation of the instruction bits. The encoded bits are:
 ```
-	0/1		- actual 0 or 1 bit
-	i		- immediate value
-	d		- rd, destination register, 3 or 5 bits
-	s		- rs1, source register 1, 3 or 5 bits 
-	t		- rs2, source register 2, 3 or 5 bits
-	a		- shift amount
-	u		- 5 bit csr immediate
-	x		- reserved
+	0/1	- actual 0 or 1 bit
+	i	- immediate value
+	d	- rd, destination register, 3 or 5 bits
+	s	- rs1, source register 1, 3 or 5 bits 
+	t	- rs2, source register 2, 3 or 5 bits
+	a	- shift amount
+	u	- 5 bit csr immediate
+	x	- reserved
 ```
 Note that there are cases where instruction encoding overlaps. In this case the more complete encoding should be described first. For example 'nop' is a special encoding of 'addi x0,x0,0'.
 
 ## ParseExcel.py3
-The 'ParseExcel.py3' tools is used to parse the excel opcode table and extract verilog decoder files and c++ simulator files. 
-	
+The 'ParseExcel.py3' tools is used to parse the excel opcode table and extract c++ simulator *.cpp and *.h files. 
+
+## MakeDecode.py3
+The 'MakeDecode.py3' tools is used to parse the excel opcode table and extract a verilog decoder file. 
+
 ## Links
 
-https://riscv.org/technical/specifications/
+Riscv.org: https://riscv.org/technical/specifications/
+
+Unprivileged Spec: https://github.com/riscv/riscv-isa-manual/releases/download/Ratified-IMAFDQC/riscv-spec-20191213.pdf
+Privileged Spec: https://github.com/riscv/riscv-isa-manual/releases/download/Priv-v1.12/riscv-privileged-20211203.pdf
 
 
 ## License
