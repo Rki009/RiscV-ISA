@@ -2,8 +2,39 @@
 
 ## Features
 
-- "RiscV-Opcodes.xls" Excel ISA Specifications
+- "RiscV-Opcodes.xls" ISA Specifications
+- "ParseExcel.py3" Tools for Building *.h and *.cpp files
 
+## RiscV-Opcodes.xls
+The spreadsheet is used to specify the encoding of RV32 and RV64 instructions. For example the lw instruction is encoded as:
+
+```
+LW Example
+--------------------------------------------
+Bits        iiiiiiiiiiiisssss010ddddd0000011
+Opcode      0x00002003
+Mask        0x0000707f
+Arch        rv32,rv64
+Type        S-type
+Asm         lw rd,rs,simm12
+Function    rd <= mem32[rs1 + simm12]
+```
+The 'Bits' field is an encoded representation of the instruction bits. The encoded bits are:
+```
+	0/1		- actual 0 or 1 bit
+	i		- immediate value
+	d		- rd, destination register, 3 or 5 bits
+	s		- rs1, source register 1, 3 or 5 bits 
+	t		- rs2, source register 2, 3 or 5 bits
+	a		- shift amount
+	u		- 5 bit csr immediate
+	x		- reserved
+```
+Note that there are cases where instruction encoding overlaps. In this case the more complete encoding should be described first. For example 'nop' is a special encoding of 'addi x0,x0,0'.
+
+## ParseExcel.py3
+The 'ParseExcel.py3' tools is used to parse the excel opcode table and extract verilog decoder files and c++ simulator files. 
+	
 ## Links
 
 https://riscv.org/technical/specifications/
