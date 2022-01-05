@@ -40,11 +40,16 @@ The 'ParseExcel.py3' tools is used to parse the excel opcode table and extract c
 The 'MakeDecode.py3' tools is used to parse the excel opcode table and extract a verilog decoder file. 
 
 ## Links
+Some useful links ...
 
-Riscv.org: https://riscv.org/technical/specifications/
+### Riscv.org:
+https://riscv.org/technical/specifications/
 
-Unprivileged Spec: https://github.com/riscv/riscv-isa-manual/releases/download/Ratified-IMAFDQC/riscv-spec-20191213.pdf
-Privileged Spec: https://github.com/riscv/riscv-isa-manual/releases/download/Priv-v1.12/riscv-privileged-20211203.pdf
+### Unprivileged Spec:
+https://github.com/riscv/riscv-isa-manual/releases/download/Ratified-IMAFDQC/riscv-spec-20191213.pdf
+
+### Privileged Spec:
+https://github.com/riscv/riscv-isa-manual/releases/download/Priv-v1.12/riscv-privileged-20211203.pdf
 
 
 ## License
