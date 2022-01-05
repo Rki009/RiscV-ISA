@@ -1,4 +1,4 @@
-# RiscV ISA - RiscV ISA info abd Tools
+# RiscV ISA - RiscV ISA info and Tools
 
 ## Features
 
