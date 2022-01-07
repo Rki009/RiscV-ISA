@@ -119,6 +119,7 @@ def doOpVliwCpp(df, arch):
 	print("Make:", fname) 
 	f = open(fname, "w")
 	f.write("const char* VliwName[" + '%d'%int(len(df)) + "] = {\n");
+	f.write('\t"VLIW_NONE",\n')
 	i = 0
 	n = 0
 	while i < len(df):
